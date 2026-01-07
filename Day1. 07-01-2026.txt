@@ -1,0 +1,107 @@
+Day 1 - 07/01/2026
+
+#1 student_average
+import pandas as pd
+import numpy as np
+
+
+df = pd.read_csv('/content/output1.csv')
+avg_scores = df[["Math", "Science", "English", "History"]].mean()
+
+
+highest_subject = avg_scores.idxmax()
+
+
+print("--------Average Scores:")
+
+print(np.round(avg_scores,2))
+
+print("\nHighest Average Subject:", highest_subject)#
+
+output:
+
+--------Average Scores:
+Math       81.97
+Science    82.56
+English    82.97
+History    82.88
+dtype: float64
+
+Highest Average Subject: English
+
+#2 Past month Price average
+import pandas as pd
+import numpy as np
+
+df=pd.read_excel("/content/Sales.xlsx")
+average_price = df[df["Month_sales"]==" November 2023"]["Price"].mean()
+
+print("Average price in November 2023 (Past Month): ",round(average_price, 2))
+
+output:
+
+Average price in November 2023 (Past Month):  2337.36
+
+#3 average sale price of houses
+import numpy as np
+import numpy as np
+
+
+df = pd.read_excel("/content/House_Prediction.xlsx")
+
+
+house_data = df.to_numpy()
+
+
+avg_price = np.mean(house_data[house_data[:, 0] > 4, 2])
+
+print("Average Sale Price:", avg_price)
+
+Output:
+
+Average Sale Price: 2.1591248135256094
+
+#4 total sales for the year and determine the percentage increase in sales
+
+import numpy as np
+import pandas as pd
+
+
+df = pd.read_excel("Sales.xlsx")
+
+sales_data = df.iloc[:, 0].to_numpy()
+
+
+total_sales = np.sum(sales_data)
+
+
+percentage_increase = ((sales_data[3] - sales_data[0]) / sales_data[0]) * 100
+
+print("Total Sales for the Year:", total_sales)
+print("Percentage Increase from Q1 to Q4:", percentage_increase, "%")
+
+Output: 
+
+Total Sales for the Year: 1050128
+Percentage Increase from Q1 to Q4: 1.9011406844106464 %
+
+#5 calculate the average fuel efficiency and determine the percentage improvement
+
+import numpy as np
+
+fuel_efficiency = np.array([22, 25, 28, 30, 35])
+
+average_efficiency = np.mean(fuel_efficiency)
+
+model_A = fuel_efficiency[1]   # 25 mpg
+model_B = fuel_efficiency[4]   # 35 mpg
+
+percentage_improvement = ((model_B - model_A) / model_A) * 100
+
+print("Average Fuel Efficiency:", average_efficiency, "mpg")
+print("Percentage Improvement:", percentage_improvement, "%")
+
+Output:
+
+Average Fuel Efficiency: 28.0 mpg
+Percentage Improvement: 40.0 %
